@@ -138,6 +138,20 @@ questions:
     description: "Prometheus data persistent volume storageClass, if not set use default StorageClass"
     type: storageclass
     label: Prometheus Persistent Volume StorageClass
+- variable: server.customNodeSelector
+  default: false
+  description: "Allow to set a node selector of the form nodeSelector.group=value (Because of a limitation in rancher to handle array and object types)"
+  group: "Prometheus Server"
+  type: boolean
+  required: true
+  label: Group node selector
+  show_subquestion_if: true
+  subquestions:
+  - variable: server.nodeSelector.group
+    default: null
+    description: "Custom node selector group label"
+    type: string
+    label: Node group label      
 # grafana configurations
 - variable: grafana.enabled
   default: true
