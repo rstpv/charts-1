@@ -196,7 +196,6 @@ questions:
   description: "Grafana service type"
   type: enum
   group: "Grafana Settings"
-  show_if: "grafana.enabled=true"
   options:
     - "ClusterIP"
     - "NodePort"
@@ -281,11 +280,11 @@ questions:
     label: Alertmanager NodePort Http Port
     show_if: "alertmanager.enabled=true&&alertmanager.ingress.enabled=false"
 - variable: alertmanager.image.repository
-    default: "prom/alertmanager"
-    description: "Alertmanager image name"
-    type: string
-    label: Alertmanager Image Name
-    show_if: "alertmanager.enabled=true"    
+  default: "prom/alertmanager"
+  description: "Alertmanager image name"
+  type: string
+  label: Alertmanager Image Name
+  show_if: "alertmanager.enabled=true"    
 - variable: alertmanager.persistentVolume.enabled
   default: "false"
   description: "If true, alertmanager will create a persistent volume claim"
