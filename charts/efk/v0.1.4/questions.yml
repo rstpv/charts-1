@@ -69,6 +69,8 @@ questions:
   label: Replicas of elasticsearch
   required: true
   group: "elasticsearch"
+  min: 1
+  max: 30
 - variable: elasticsearch.master.persistence.enabled
   default: "false"
   description: "Enable persistent volume for elasticsearch"
