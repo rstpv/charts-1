@@ -27,10 +27,6 @@ spec:
       securityContext:
         fsGroup: 1000
       {{- end }}
-      {{- if .Values.nodeSelector }}
-          nodeSelector:
-{{ toYaml .Values.nodeSelector | indent 8 }}
-      {{- end }}
       {{- if eq .Values.master.antiAffinity "hard" }}
       affinity:
         podAntiAffinity:
@@ -119,6 +115,10 @@ spec:
         emptyDir: {}
   {{- else }}
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
+    {{- if .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 8 }}
+    {{- end }}
   volumeClaimTemplates:
   - metadata:
       name: {{ .Values.master.persistence.name }}
