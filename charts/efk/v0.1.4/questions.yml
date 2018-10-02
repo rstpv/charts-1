@@ -62,6 +62,13 @@ questions:
   options:
   - "ClusterIP"
   - "NodePort"
+- variable: elasticsearch.master.replicas
+  default: 3
+  description: "Replicas of elasticsearch"
+  type: int
+  label: Replicas of elasticsearch
+  required: true
+  group: "elasticsearch"
 - variable: elasticsearch.master.persistence.enabled
   default: "false"
   description: "Enable persistent volume for elasticsearch"
